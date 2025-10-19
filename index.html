@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小兒泌尿科常見疾病介紹（完整版）</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font setup */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap');
+        body {
+            font-family: 'Noto Sans TC', 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+        }
+        /* Make the container slightly less wide on desktop for aesthetic balance, but allow it to fully scroll */
+        .main-container {
+            max-width: 900px; 
+        }
+
+        /* CSS for the Collapsible Section */
+        #uncommonDiseases {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+        }
+        #uncommonDiseases.is-visible {
+            max-height: 2500px; /* Sufficient height to show all cards */
+            opacity: 1;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1e40af', /* Darker blue for primary elements */
+                        'accent-teal': '#06b6d4',  /* Teal for highlights */
+                        'background-light': '#f8fafc',
+                        'uncommon-red': '#b91c1c', /* Deep red for rare disease alerts */
+                        'functional-blue': '#059669', /* Dark green/teal for functional issues */
+                        'anatomical-brown': '#b45309', /* Amber/brown for anatomical remnants */
+                    },
+                }
+            }
+        }
+        
+        // JavaScript function to toggle the visibility of the uncommon diseases section
+        function toggleUncommonDiseases() {
+            const section = document.getElementById('uncommonDiseases');
+            const button = document.getElementById('toggleButton');
+
+            if (section.classList.contains('is-visible')) {
+                // Hide content
+                section.classList.remove('is-visible');
+                button.textContent = '其他小兒泌尿科疾病（點擊展開）';
+            } else {
+                // Show content
+                section.classList.add('is-visible');
+                button.textContent = '其他小兒泌尿科疾病（點擊收合）';
+            }
+        }
+    </script>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="main-container mx-auto">
+
+        <!-- Header -->
+        <header class="text-center py-8 mb-6 bg-primary-blue text-white rounded-xl shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">小兒泌尿科 7 大常見疾病</h1>
+            <!-- UPDATED: Changed text to "請左右滑動查看" (置中) -->
+            <p class="mt-2 text-base md:text-lg opacity-90">請左右滑動查看</p>
+        </header>
+
+        <!-- Introduction -->
+        <section class="mb-8 p-6 bg-white rounded-xl shadow-md border-t-4 border-accent-teal">
+            <h2 class="text-2xl font-bold text-primary-blue mb-4">小兒泌尿系統健康概述</h2>
+            <p class="text-gray-700 leading-relaxed">
+                以下表格彙整了小兒泌尿科中發生率最高或臨床上極需關注的七種疾病。請注意，此表格已設計為「左右延伸」，以便在不增加垂直長度的情況下，在單一視圖中容納所有詳細資訊。若您在手機上觀看，請左右滑動表格。
+            </p>
+        </section>
+
+        <!-- Incidence Ranking Table (Horizontal Scrollable Section) - RETAINED -->
+        <section class="mb-10 p-4 md:p-6 bg-white rounded-xl shadow-xl border-l-4 border-primary-blue">
+            <h2 class="text-2xl font-bold text-primary-blue mb-4">7 大核心疾病發生率與臨床重點</h2>
+            <div class="overflow-x-auto rounded-lg border border-gray-200 shadow-inner">
+                <!-- Set a minimum width on the table itself to force scrolling -->
+                <table class="divide-y divide-gray-200 min-w-[850px] table-fixed">
+                    <thead class="bg-primary-blue text-white sticky top-0">
+                        <tr>
+                            <!-- Rank: w-16 -->
+                            <th scope="col" class="px-3 py-3 text-center text-sm font-semibold uppercase tracking-wider w-16">
+                                排名
+                            </th>
+                            <!-- Disease Name: w-40 -->
+                            <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider w-40">
+                                疾病名稱
+                            </th>
+                            <!-- Incidence: w-24 -->
+                            <th scope="col" class="px-6 py-3 text-center text-sm font-semibold uppercase tracking-wider w-24">
+                                發生率
+                            </th>
+                            <!-- Notes: The wide column, forcing horizontal scroll -->
+                            <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider w-[500px]">
+                                備註內容與臨床重點
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        
+                        <!-- 1. 夜間遺尿 / 尿床 -->
+                        <tr class="hover:bg-teal-50">
+                            <td class="px-3 py-4 text-center text-sm font-medium text-gray-900 bg-accent-teal/10 w-16">1</td>
+                            <td class="px-6 py-4 text-sm font-medium text-primary-blue w-40">夜間遺尿 / 尿床</td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-700 font-bold w-24">~15% - 20%</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 w-[500px]">
+                                <span class="font-bold text-accent-teal">最高發生率的功能性問題。</span>多數是原發性，與夜間抗利尿激素分泌不足及膀胱容積相關。若發生「次發性遺尿」（曾乾爽六個月後復發），需警惕是否有 UTI、糖尿病或神經功能問題。治療首選為排尿鬧鐘與行為矯正。
+                            </td>
+                        </tr>
+                        
+                        <!-- 2. 腹股溝疝氣 -->
+                        <tr class="hover:bg-teal-50">
+                            <td class="px-3 py-4 text-center text-sm font-medium text-gray-900 w-16">2</td>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-800 w-40">腹股溝疝氣</td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-700 w-24">~1% - 4%</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 w-[500px]">
+                                <span class="font-bold text-red-700">外科急症風險。</span>主要是胚胎期腹膜鞘突未閉合造成。需注意腫塊是否變硬、疼痛、無法推回（嵌頓性疝氣），一旦嵌頓可能導致腸子或睪丸壞死，需立即手術。早產兒發生率較高。
+                            </td>
+                        </tr>
+                        
+                        <!-- 3. 隱睪症 -->
+                        <tr class="hover:bg-teal-50 bg-gray-50">
+                            <td class="px-3 py-4 text-center text-sm font-medium text-gray-900 bg-gray-100 w-16">3</td>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-800 bg-gray-100 w-40">隱睪症</td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-700 bg-gray-100 w-24">~2% - 3.4%</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 bg-gray-100 w-[500px]">
+                                睪丸未下降至陰囊。若 6 個月後未自行下降，應在<span class="font-bold text-red-700">1 歲左右進行手術（Orchiopexy）</span>。早期手術是為了減少將來的生育能力影響、避免睪丸扭轉，並降低睪丸癌的風險。
+                            </td>
+                        </tr>
+                        
+                        <!-- 4. 泌尿道感染 (UTI) -->
+                        <tr class="hover:bg-teal-50">
+                            <td class="px-3 py-4 text-center text-sm font-medium text-gray-900 w-16">4</td>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-800 w-40">泌尿道感染 (UTI)</td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-700 w-24">~1% - 2%</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 w-[500px]">
+                                兒童常見感染，嬰幼兒發燒無明顯原因時需高度懷疑。若為腎盂腎炎，可能導致腎臟結疤。首次感染後，通常需進一步檢查（如腎臟超音波、VCUG）以排除<span class="font-bold text-blue-700">膀胱輸尿管逆流 (VUR)</span> 等潛在構造異常。
+                            </td>
+                        </tr>
+
+                        <!-- 5. 陰囊水腫 (Hydrocele) -->
+                        <tr class="hover:bg-teal-50 bg-gray-50">
+                            <td class="px-3 py-4 text-center text-sm font-medium text-gray-900 bg-gray-100 w-16">5</td>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-800 bg-gray-100 w-40">陰囊水腫</td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-700 bg-gray-100 w-24">~5%</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 bg-gray-100 w-[500px]">
+                                <span class="font-bold">活產男嬰中很常見。</span>液體積聚於睪丸周圍。多數是「交通性水腫」，會在 1 歲內自行消退。若超過 1 歲仍未消退或持續增大，則需手術修復，以避免進一步發展成疝氣。
+                            </td>
+                        </tr>
+                        
+                        <!-- 6. 尿道下裂 (Hypospadias) -->
+                        <tr class="hover:bg-teal-50">
+                            <td class="px-3 py-4 text-center text-sm font-medium text-gray-900 w-16">6</td>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-800 w-40">尿道下裂</td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-700 w-24">~0.3% - 0.5%</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 w-[500px]">
+                                尿道開口未在陰莖頂端。矯正手術通常在<span class="font-bold text-purple-700">6 個月到 18 個月大之間進行</span>。手術目的是重建正常的排尿功能、矯正陰莖彎曲（Chordee）並改善外觀。由於需要使用包皮進行重建，故不建議進行新生兒割禮。
+                            </td>
+                        </tr>
+
+                        <!-- 7. 膀胱輸尿管逆流 (VUR) -->
+                        <tr class="hover:bg-teal-50 bg-gray-50">
+                            <td class="px-3 py-4 text-center text-sm font-medium text-gray-900 bg-gray-100 w-16">7</td>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-800 bg-gray-100 w-40">膀胱輸尿管逆流 (VUR)</td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-700 bg-gray-100 w-24">~1% - 2%</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 bg-gray-100 w-[500px]">
+                                尿液從膀胱逆流至輸尿管和腎臟，是<span class="font-bold text-red-700">腎臟結疤和功能受損的主要原因</span>。通常在反覆或嚴重的 UTI 後被 VCUG (排尿膀胱尿道攝影) 診斷。治療包括長期預防性抗生素或手術矯正，具體取決於逆流分級。
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4 text-xs text-gray-500">提示：表格已設計為水平滾動，以便在單一螢幕中顯示所有 7 個項目及其詳細備註。</p>
+        </section>
+
+
+        <!-- Button to toggle uncommon diseases - ADDED BACK -->
+        <div class="text-center my-10">
+            <button id="toggleButton" onclick="toggleUncommonDiseases()" class="py-3 px-8 bg-accent-teal text-white font-bold rounded-full shadow-lg hover:bg-opacity-80 transition duration-300 transform hover:scale-105">
+                其他小兒泌尿科疾病（點擊展開）
+            </button>
+        </div>
+
+        <!-- Collapsible Section for Uncommon Diseases - ADDED BACK -->
+        <div id="uncommonDiseases" class="space-y-8">
+            <h2 class="text-2xl font-bold text-uncommon-red text-center mb-6">少見的構造異常、功能性疾病與腫瘤</h2>
+            
+            <!-- U1. 神經性膀胱 (Neurogenic Bladder) -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-functional-blue">
+                <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-functional-blue mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <h3 class="text-xl font-bold text-gray-800">神經性膀胱 (Neurogenic Bladder)</h3>
+                </div>
+                <p class="text-gray-600 mb-3">定義：由於神經系統損傷（如脊髓脊膜膨出）導致膀胱儲尿和排尿功能障礙。</p>
+                <div class="bg-teal-50 p-4 rounded-lg">
+                    <p class="font-semibold text-functional-blue mb-2">管理與保護腎功能:</p>
+                    <ul class="list-disc list-inside text-sm text-functional-blue space-y-1">
+                        <li><span class="font-medium">主要成因：</span> 最常見於脊髓脊膜膨出 (Spina Bifida) 患者。</li>
+                        <li><span class="font-medium">嚴重風險：</span> 膀胱壓力過高可能導致輸尿管逆流、反覆感染，最終造成腎臟損傷。</li>
+                        <li><span class="font-medium">核心治療：</span> 間歇性導尿 (CIC)、藥物治療（如抗膽鹼藥）和必要的增強手術。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- U2. 維爾姆氏腫瘤 (Wilms' Tumor) -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-black">
+                <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-black mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a12.004 12.004 0 01-8.627 3.375m17.65 4.888L12 21.25l-7.025-4.444A12.004 12.004 0 013 11.085V11a9 9 0 019-9v0a9 9 0 019 9v0l.618.385z"></path></svg>
+                    <h3 class="text-xl font-bold text-gray-800">維爾姆氏腫瘤 (Wilms' Tumor)</h3>
+                </div>
+                <p class="text-gray-600 mb-3">定義：兒童最常見的腎臟惡性腫瘤。</p>
+                <div class="bg-red-200 p-4 rounded-lg">
+                    <p class="font-semibold text-black mb-2">🚨 惡性腫瘤警示 (Malignant Tumor Alert):</p>
+                    <ul class="list-disc list-inside text-sm text-gray-900 space-y-1">
+                        <li><span class="font-medium">典型症狀：</span> 腹部無痛性腫塊，家長常在洗澡或穿衣時發現。可能伴隨腹痛、血尿或高血壓。</li>
+                        <li><span class="font-medium">治療原則：</span> 以外科手術切除（腎臟）為主，通常配合化學治療，預後相較成人癌症良好。</li>
+                        <li><span class="font-medium">重要提醒：</span> 發現疑似腹部腫塊時，**應避免過度按壓或搓揉**，以防腫瘤破裂造成擴散或出血。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- U3. 臍尿管殘餘 (Urachus Remnant) -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-anatomical-brown">
+                <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-anatomical-brown mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5h3m-6 3h12a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25h-3a2.25 2.25 0 01-2.25-2.25h-1.5a2.25 2.25 0 01-2.25 2.25h-3a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"></path></svg>
+                    <h3 class="text-xl font-bold text-gray-800">臍尿管殘餘 (Urachus Remnant)</h3>
+                </div>
+                <p class="text-gray-600 mb-3">定義：胚胎時期連接膀胱與肚臍的臍尿管未能完全退化閉合，形成囊腫、竇道或開放管。</p>
+                <div class="bg-amber-50 p-4 rounded-lg">
+                    <p class="font-semibold text-anatomical-brown mb-2">臨床表現與類型:</p>
+                    <ul class="list-disc list-inside text-sm text-amber-800 space-y-1">
+                        <li><span class="font-medium">臍尿管開放：</span> 最嚴重類型。尿液從肚臍滲出，尤其在嬰兒用力時。</li>
+                        <li><span class="font-medium">臍尿管囊腫：</span> 殘餘結構的局部擴大形成囊腫，常無症狀，但可能因感染而疼痛、發燒。</li>
+                        <li><span class="font-medium">治療：</span> 一旦確診有症狀或感染，通常建議手術完全切除殘餘組織以預防復發和惡變風險。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- U4. 後尿道瓣膜 (Posterior Urethral Valves, PUV) -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-uncommon-red">
+                <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-uncommon-red mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    <h3 class="text-xl font-bold text-gray-800">後尿道瓣膜 (PUV)</h3>
+                </div>
+                <p class="text-gray-600 mb-3">定義：只發生於男童，後尿道內有異常組織瓣膜，阻礙尿液排出。</p>
+                <div class="bg-red-50 p-4 rounded-lg">
+                    <p class="font-semibold text-uncommon-red mb-2">嚴重性與處置:</p>
+                    <ul class="list-disc list-inside text-sm text-uncommon-red space-y-1">
+                        <li><span class="font-medium">嚴重後果：</span> 導致膀胱、輸尿管和腎臟積水及損傷，是男性嬰兒腎衰竭的主要原因之一。</li>
+                        <li><span class="font-medium">診斷：</span> 產前超音波或出生後因排尿困難、泌尿道感染而確診。</li>
+                        <li><span class="font-medium">治療：</span> 需盡早進行內視鏡手術切開瓣膜以解除阻塞。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- U5. 腎盂輸尿管連接處阻塞 (UPJO) -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-yellow-700">
+                <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-yellow-700 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    <h3 class="text-xl font-bold text-gray-800">腎盂輸尿管連接處阻塞 (UPJO)</h3>
+                </div>
+                <p class="text-gray-600 mb-3">定義：腎臟（腎盂）與輸尿管連接處的狹窄或功能不良，阻礙尿液流動，造成腎積水。</p>
+                <div class="bg-yellow-50 p-4 rounded-lg">
+                    <p class="font-semibold text-yellow-800 mb-2">診斷與治療:</p>
+                    <ul class="list-disc list-inside text-sm text-yellow-700 space-y-1">
+                        <li><span class="font-medium">特點：</span> 是小兒腎積水最常見的原因。常在產前超音波檢查中被發現。</li>
+                        <li><span class="font-medium">處理：</span> 輕微者可能持續觀察，嚴重者需手術（腎盂整形術）解除阻塞並重建連接處。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- U6. 膀胱外翻 (Exstrophy of the Bladder) -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-600">
+                <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-pink-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.002 2.002 4.004 4.003 4.001-4.002M12 17l.01.01"></path></svg>
+                    <h3 class="text-xl font-bold text-gray-800">膀胱外翻 (Exstrophy of the Bladder)</h3>
+                </div>
+                <p class="text-gray-600 mb-3">定義：罕見的出生缺陷，膀胱未能完全閉合，腹壁和膀胱前壁缺損，導致膀胱內層黏膜暴露在體外。</p>
+                <div class="bg-pink-50 p-4 rounded-lg">
+                    <p class="font-semibold text-pink-700 mb-2">治療重點:</p>
+                    <ul class="list-disc list-inside text-sm text-pink-600 space-y-1">
+                        <li><span class="font-medium">性質：</span> 屬於複雜的先天性構造異常，通常涉及多個泌尿生殖道和骨盆結構。</li>
+                        <li><span class="font-medium">治療：</span> 需要一系列分階段的手術來關閉膀胱和腹壁，重建尿道，並確保未來的排尿功能和性功能。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- U7. 尿道旁囊腫 (Paraurethral Cyst) -->
+            <div class="bg-white p-6 rounded-xl shadow-lg transition duration-300 hover:shadow-xl border-l-4 border-orange-500">
+                <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-orange-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    <h3 class="text-xl font-bold text-gray-800">尿道旁囊腫 (Paraurethral Cyst)</h3>
+                </div>
+                <p class="text-gray-600 mb-3">定義：位於尿道口周圍軟組織的良性囊腫，多數由腺體阻塞造成，在女嬰中較常見。</p>
+                <div class="bg-orange-50 p-4 rounded-lg">
+                    <p class="font-semibold text-orange-700 mb-2">重要須知:</p>
+                    <ul class="list-disc list-inside text-sm text-orange-600 space-y-1">
+                        <li><span class="font-medium">症狀：</span> 大多無症狀，但體積過大可能壓迫尿道，造成排尿困難或尿流偏斜。</li>
+                        <li><span class="font-medium">處理時機：</span> 許多囊腫在嬰兒期會自行消退。若持續存在、造成阻塞或反覆感染，可能需進行手術（如開窗術）。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer / Disclaimer -->
+        <footer class="mt-10 pt-6 border-t border-gray-300 text-center text-sm text-gray-500">
+            <p><strong>免責聲明：</strong>此資訊僅供教育目的，不能取代專業醫療診斷與建議。若懷疑孩子有任何泌尿科問題，請務必諮詢合格醫師。</p>
+            <p class="mt-2 text-xs">設計風格採用 Tailwind CSS & Noto Sans TC</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+
